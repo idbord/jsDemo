@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Carousel written with JS</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #carousel-container{
+            margin: 30px auto;
+            width: 500px;
+            height: 300px;
+            background-color: blueviolet;
+        }
+        .tip-common{
+            width: 500px;
+            height: 300px;
+        }
+        .tip-hide{
+            display: none;
+        }
+        .tip-show{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="carousel-container">
+
+    </div>
+
+    <script src="carousel.js"></script>
+    <script>
+        //定义资源数组，来自ajax异步响应
+        var images = [
+            {
+                "title": "轮播来了1",
+                "src": "img/1.jpg"
+            },
+            {
+                "title": "轮播来了1",
+                "src": "img/2.jpg"
+            },
+            {
+                "title": "轮播来了1",
+                "src": "img/3.jpg"
+            },
+            {
+                "title": "轮播来了1",
+                "src": "img/4.jpg"
+            }
+        ];
+        //定义图片数量、切换时间间隔
+        var img_count = 4,
+                show_interval = 3000;
+        //加载轮播
+        carousel(img_count, show_interval);
+    </script>
+</body>
+</html>
