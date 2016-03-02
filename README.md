@@ -4,3 +4,4 @@
 由于水平有限，难免有疏漏之处，大家如有更好的实现方法，欢迎提Issues进行交流。
 
 * [轮播](https://github.com/idbord/jsDemo/tree/master/carousel)
+* [视差滚动](https://github.com/idbord/jsDemo/tree/master/Parallax)
