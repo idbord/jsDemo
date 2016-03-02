@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>视差滚动Demo1</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .item{
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            margin: auto;
+            height: 700px;
+            background-size: cover;
+            opacity: 0.7;
+            overflow: hidden;
+        }
+        .section1{
+            background-image: url("img/bg1.jpg");
+        }
+        .section2{
+            background-image: url("img/bg2.jpg");
+        }
+        .item-content{
+            position: relative;
+            top: 300px;
+            width: 300px;
+            left: 1400px;
+        }
+        .item-content-animate{
+            left: 0px;
+            margin: 0 auto;
+            -webkit-transition : all ease-out 1500ms;
+            -moz-transition : all ease-out 1500ms;
+            -o-transition: all ease-out 1500ms;
+            transition : all ease-out 1500ms;
+        }
+        .specific{
+            position: relative;
+            top: 300px;
+            height: 20px;
+            line-height: 20px;
+            width: 100px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: bisque;
+        }
+        .specific-animate{
+            width: 300px;
+            height: 100px;
+            line-height: 100px;
+            border-radius: 10px;
+            background-color: burlywood;
+            opacity: 0.7;
+            color: white;
+            -webkit-transition : all ease-out 1500ms;
+            -moz-transition : all ease-out 1500ms;
+            -o-transition: all ease-out 1500ms;
+            transition : all ease-out 1500ms;
+        }
+    </style>
+</head>
+<body>
+    <div class="item section1" id="item1">
+        <div id="content1" class="item-content">内容内容内容内容内容内容内容内容</div>
+    </div>
+    <div class="item section2" id="item2">
+        <div id="content2" class="item-content">内容内容内容内容内容内容内容内容</div>
+    </div>
+    <div class="item section1" id="item3">
+        <div id="content3" class="specific">我来了!</div>
+    </div>
+</body>
+<script type="text/javascript" src="js/eventUtil.js"></script>
+<script>
+    var item_height = document.getElementById("item1").clientHeight,
+            content1 = document.getElementById("content1"),
+            content2 = document.getElementById("content2"),
+            content3 = document.getElementById("content3");
+
+    eventUtil.addEvent(window, "scroll", function(){
+        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        if(scrollTop>0 && scrollTop<item_height/4){
+            content1.classList.add("item-content-animate");
+            content2.classList.remove("item-content-animate");
+        }else if(scrollTop>item_height && scrollTop<item_height*2){
+            content1.classList.remove("item-content-animate");
+            content2.classList.add("item-content-animate");
+            content3.classList.remove("specific-animate");
+        }else if(scrollTop>item_height*2 && scrollTop<item_height*3){
+            content2.classList.remove("item-content-animate");
+            content3.classList.add("specific-animate");
+        }
+    });
+</script>
+</html>
